@@ -3,8 +3,6 @@
 <?php 
     $homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
     include $homedir.'/pizzeria2/head.php';
-    //start session
-    session_start();
 
     //get session data
     $sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:'';

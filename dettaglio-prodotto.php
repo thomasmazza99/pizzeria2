@@ -4,7 +4,7 @@
   $homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
   include $homedir.'/pizzeria2/head.php';
   require_once  $homedir.'/pizzeria2/models/ProdottiModel.php';
-  if(!isset($_REQUEST['id']) || !isset($_REQUEST['ritiro']) || !isset($_REQUEST['tipo'])){
+  if(!isset($_REQUEST['id']) || !isset($_REQUEST['tipo'])){
       header("Location:404.php");
   }
   $id=isset($_REQUEST['id'])?$_REQUEST['id']:0;
@@ -23,6 +23,11 @@
       <div class="container">
         <div class="row bar">
             <div class="col-lg-12">
+            <div id="details" class="mb-4 mt-4">
+                <p></p>
+                <h4><?php echo $prodotto->titolo; ?></h4>
+                <p><?php echo $prodotto->descrizione; ?></p>
+              </div>
               <div id="productMain" class="row">
                 <div class="col-sm-6">
                   <div>
@@ -31,7 +36,7 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="box">
-                    <form>
+                    <form method="post" action="carrello.php?id_product=<?php echo $prodotto->id; ?>&tipo=<?php echo $prodotto->tipo; ?>">
                       <div class="sizes">
                         <h3>Grandezza</h3>
                         <select class="bs-select">
@@ -47,11 +52,7 @@
                   </div>
                 </div>
               </div>
-              <div id="details" class="mb-4 mt-4">
-                <p></p>
-                <h4><?php echo $prodotto->titolo; ?></h4>
-                <p><?php echo $prodotto->descrizione; ?></p>
-              </div>
+              
             </div>
           </div>
       </div>

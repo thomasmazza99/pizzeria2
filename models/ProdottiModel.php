@@ -21,7 +21,7 @@ class ProdottiModel{
     }
     public function getProdotto($id,$tipo){
         $conditions['where'] = array(
-            'id' => $_GET['id'],
+            'id' => $id,
         );
         $conditions['return_type'] = 'single';
         $row = $this->conn->getRows($tipo,$conditions);
