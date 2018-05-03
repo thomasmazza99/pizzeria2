@@ -235,7 +235,7 @@ ALTER TABLE `pizze_ordini`
 
   CREATE TABLE IF NOT EXISTS `utenti` (
   `username` varchar(255) NOT NULL,
-  `paswword` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
