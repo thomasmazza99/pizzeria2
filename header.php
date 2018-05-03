@@ -1,27 +1,21 @@
  <?php 
     $homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
     require_once  $homedir.'/pizzeria2/models/CarrelloModel.php';
-    //start session
-    session_start();
-
-    $cart = !empty($_SESSION['cart'])?$_SESSION['cart']:new CarrelloModel();
-
-    if(isset($_REQUEST['id_product']) && isset($_REQUEST['tipo'])){
-        if(isset($_REQUEST['delete'])){
-             $cart->delete($_REQUEST['id_product'],$_REQUEST['tipo']);
-        }else{
-            $cart->add($_REQUEST['id_product'], 1, $_REQUEST['tipo']);
-        }
-        $_SESSION['cart'] = $cart;
+    require_once  $homedir.'/pizzeria2/models/UserModel.php';
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
     }
-?>
 
- <!-- Top bar-->
+    $cart = !empty($_SESSION['cart'])?$_SESSION['cart']:null;
+    $user = !empty($_SESSION['user'])?$_SESSION['user']:null;
+    
+?>
+<!-- Top bar-->
       <div class="top-bar">
         <div class="container">
           <div class="row d-flex align-items-center">
             <div class="col-md-6 d-md-block d-none">
-              <p>Contact us on +420 777 555 333 or hello@universal.com.</p>
+              <p>Contattaci al 0516153392 o al 051430262</p>
             </div>
             <div class="col-md-6">
               <div class="d-flex justify-content-md-end justify-content-between">
@@ -29,7 +23,11 @@
                   <li class="list-inline-item"><a href="#"><i class="fa fa-phone"></i></a></li>
                   <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
                 </ul>
-                <div class="login"><a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Sign In</span></a><a href="customer-register.html" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Sign Up</span></a></div>
+                <?php if($user==null): ?>
+                  <div class="login"><a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Login</span></a><a href="register.php" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Registrati</span></a></div>
+                <?php  else:?>
+                <div>Salve <?php echo $user->username; ?></div>
+                <?php endif; ?>
                 <ul class="social-custom list-inline">
                   <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
                   <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -51,19 +49,20 @@
               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
-              <form action="customer-orders.html" method="get">
+              <form action="login.php" method="post">
+                <input type="hidden" name="redirurl" value="<?php echo (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"; ?>" />
                 <div class="form-group">
-                  <input id="email_modal" type="text" placeholder="email" class="form-control">
+                  <input id="username" name="username" type="text" placeholder="email" class="form-control">
                 </div>
                 <div class="form-group">
-                  <input id="password_modal" type="password" placeholder="password" class="form-control">
+                  <input id="password" name="password" type="password" placeholder="password" class="form-control">
                 </div>
                 <p class="text-center">
-                  <button class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Log in</button>
+                  <button name="submit" class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Log in</button>
                 </p>
               </form>
-              <p class="text-center text-muted">Not registered yet?</p>
-              <p class="text-center text-muted"><a href="customer-register.html"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+              <p class="text-center text-muted">Non sei ancora registrato</p>
+              <p class="text-center text-muted"><a href="register.php"><strong>Registrati</strong></a></p>
             </div>
           </div>
         </div>
@@ -76,7 +75,7 @@
             <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
             <div id="navigation" class="navbar-collapse collapse">
               <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item dropdown active"><a href="/pizzeria2" >Home </a>
+                <li class="nav-item dropdown"><a href="/pizzeria2" >Home </a>
                 </li>
                 <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Prodotti<b class="caret"></b></a>
                   <ul class="dropdown-menu megamenu">
@@ -117,7 +116,9 @@
                 </li>
                 <!-- ========== Contact dropdown end ==================-->
                 <!-- ========== Carrello ==================-->
-                 <?php include 'carrello-menu.php';?>
+                <?php if($cart!=null && !empty($cart->items)): ?>
+                  <li class="nav-item dropdown"><a href="carrello.php" ><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-secondary"><?php echo count($cart->items); ?></span></a>
+                <?php endif; ?>
                 <!-- ========== Carrello ==================-->
               </ul>
             </div>
