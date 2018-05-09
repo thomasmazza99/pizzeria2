@@ -60,8 +60,8 @@
                             <td><i class="fa fa-eur" aria-hidden="true"></i> <?php echo $item->prezzo;?></td>
                             <td><i class="fa fa-eur" aria-hidden="true"></i> <?php echo $item->prezzo;?></td>
                             <td>
-                              <button type="submit" value="aggiorna" name="action"><i class="fa fa-refresh"></i></button>
-                              <button type="submit" value="delete" name="action"><i class="fa fa-trash"></i></button>                              
+                              <button type="submit" value="aggiorna" name="action" class="btn btn-template-outlined"><i class="fa fa-refresh"></i></button>
+                              <button type="submit" value="delete" name="action" class="btn btn-template-outlined"><i class="fa fa-trash"></i></button>                              
                              </td>                        
                           </form>                          
                         </tr>

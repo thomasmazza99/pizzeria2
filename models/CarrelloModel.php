@@ -18,41 +18,26 @@ class CarrelloModel{
     public function add($product_id, $quantity, $tipo){
         $prodottiModel=new ProdottiModel();
         $prodotto=$prodottiModel->getProdotto($product_id,$tipo);
-        $item=new CarrelloItemModel();
-        $item->product_id = $product_id;
-        $item->quantity = $quantity;
-        $item->tipo = $tipo;
-        $item->img=$prodotto->img;
-        $item->titolo=$prodotto->titolo;
-        $item->prezzo=$prodotto->prezzo;
-        if(count($this->items)>0){
-            foreach($this->items as $index => $element) {
-                $item=$this->items[$index];
-                if($item->product_id==$product_id && $item->tipo==$tipo)
-                {
-                    $item->quantity++;
-                }
-                else{
-                    array_push($this->items,$item);
-                }
-            }
+        $item=$this->getItem($product_id,$tipo);
+        if($item==null){
+            $item=new CarrelloItemModel();
+            $item->product_id = $product_id;
+            $item->quantity = $quantity;
+            $item->tipo = $tipo;
+            $item->img=$prodotto->img;
+            $item->titolo=$prodotto->titolo;
+            $item->prezzo=$prodotto->prezzo;
+            array_push($this->items,$item);
         }
         else{
-            array_push($this->items,$item);
+            $item->quantity++;
         }
     }
 
     public function aggiorna($product_id, $quantity, $tipo){
-             
-        foreach($this->items as $index => $element) {
-            $item=$this->items[$index];
-            if($item->product_id==$product_id && $item->tipo==$tipo)
-            {
-                 $item->quantity++;
-            }
-            else{
-                array_push($this->items,$item);
-            }
+        $item=$this->getItem($product_id,$tipo);  
+        if($item!=null){
+            $item->quantity=$quantity;
         }
     }
     public function delete($product_id, $tipo){
@@ -69,11 +54,20 @@ class CarrelloModel{
         $somma=0;
         foreach($this->items as $index => $element) {
             $item=$this->items[$index];
-            $somma=$somma+(float)$item->prezzo;
+            $somma=$somma+((float)$item->prezzo*$item->quantity);
         }
         return $somma;
     }
 
-
+    public function getItem($product_id,$tipo){
+        foreach($this->items as $index => $element) {
+            $item=$this->items[$index];
+            if($item->product_id==$product_id && $item->tipo==$tipo)
+            {
+                 return $item;
+            }
+        }
+        return null;
+    }
     
 }
