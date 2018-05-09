@@ -25,7 +25,35 @@ class CarrelloModel{
         $item->img=$prodotto->img;
         $item->titolo=$prodotto->titolo;
         $item->prezzo=$prodotto->prezzo;
-        array_push($this->items,$item);
+        if(count($this->items)>0){
+            foreach($this->items as $index => $element) {
+                $item=$this->items[$index];
+                if($item->product_id==$product_id && $item->tipo==$tipo)
+                {
+                    $item->quantity++;
+                }
+                else{
+                    array_push($this->items,$item);
+                }
+            }
+        }
+        else{
+            array_push($this->items,$item);
+        }
+    }
+
+    public function aggiorna($product_id, $quantity, $tipo){
+             
+        foreach($this->items as $index => $element) {
+            $item=$this->items[$index];
+            if($item->product_id==$product_id && $item->tipo==$tipo)
+            {
+                 $item->quantity++;
+            }
+            else{
+                array_push($this->items,$item);
+            }
+        }
     }
     public function delete($product_id, $tipo){
         foreach($this->items as $index => $element) {
@@ -36,5 +64,16 @@ class CarrelloModel{
             }
         }
     }
+
+    public function getTotale(){
+        $somma=0;
+        foreach($this->items as $index => $element) {
+            $item=$this->items[$index];
+            $somma=$somma+(float)$item->prezzo;
+        }
+        return $somma;
+    }
+
+
     
 }

@@ -11,11 +11,14 @@
     $cart = !empty($_SESSION['cart'])?$_SESSION['cart']:new CarrelloModel();
 
     if(isset($_REQUEST['id_product']) && isset($_REQUEST['tipo'])){
-        if(isset($_REQUEST['delete'])){
+        if(isset($_REQUEST['action'])&&$_REQUEST['action']=='delete'){
              $cart->delete($_REQUEST['id_product'],$_REQUEST['tipo']);
+        }elseif(isset($_REQUEST['action'])&&$_REQUEST['action']=='aggiorna'){
+          $cart->aggiorna($_REQUEST['id_product'], $_REQUEST['quantity'], $_REQUEST['tipo']);
         }else{
             $cart->add($_REQUEST['id_product'], 1, $_REQUEST['tipo']);
         }
+        
         $_SESSION['cart'] = $cart;
     }
 ?>
@@ -35,7 +38,6 @@
             
             <div id="basket" class="col-lg-9">
               <div class="box mt-0 pb-0 no-horizontal-padding">
-                <form method="get" action="shop-checkout1.html">
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
@@ -49,21 +51,26 @@
                       <tbody>
                         <?php foreach($cart->items as $item):  ?>
                         <tr>
+                          <form method="post" action="carrello.php?id_product=<?php echo $item->product_id;?>&tipo=<?php echo $item->tipo;?>">
                           <td><a href="#"><img src="<?php echo $item->img;?>" alt="<?php echo $item->titolo;?>" class="img-fluid"></a></td>
-                          <td><a href="#"><?php echo $item->titolo;?></a></td>
-                          <td>
-                            <input type="number" value="<?php echo $item->quantity;?>" class="form-control">
-                          </td>
-                          <td><i class="fa fa-eur" aria-hidden="true"></i> <?php echo $item->prezzo;?></td>
-                          <td><i class="fa fa-eur" aria-hidden="true"></i> <?php echo $item->prezzo;?></td>
-                          <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                            <td><a href="#"><?php echo $item->titolo;?></a></td>
+                            <td>                          
+                              <input type="number" name="quantity" value="<?php echo $item->quantity;?>" class="form-control">
+                            </td>
+                            <td><i class="fa fa-eur" aria-hidden="true"></i> <?php echo $item->prezzo;?></td>
+                            <td><i class="fa fa-eur" aria-hidden="true"></i> <?php echo $item->prezzo;?></td>
+                            <td>
+                              <button type="submit" value="aggiorna" name="action"><i class="fa fa-refresh"></i></button>
+                              <button type="submit" value="delete" name="action"><i class="fa fa-trash"></i></button>                              
+                             </td>                        
+                          </form>                          
                         </tr>
                         <?php endforeach;?>
                       </tbody>
                       <tfoot>
                         <tr>
                           <th colspan="5">Totale</th>
-                          <th colspan="2">$446.00</th>
+                          <th colspan="2"><i class="fa fa-eur" aria-hidden="true"></i><?php echo $cart->getTotale();?></th>
                         </tr>
                       </tfoot>
                     </table>
@@ -75,7 +82,6 @@
                       <button type="submit" class="btn btn-template-outlined">Procedi con l'ordine <i class="fa fa-chevron-right"></i></button>
                     </div>
                   </div>
-                </form>
               </div>
             </div>
             <div class="col-lg-3">
@@ -87,8 +93,8 @@
                   <table class="table">
                     <tbody>
                       <tr>
-                        <td>Ttoale Ordine</td>
-                        <th>$446.00</th>
+                        <td>Totale Ordine</td>
+                        <th><i class="fa fa-eur" aria-hidden="true"></i><?php echo $cart->getTotale();?></th>
                       </tr>
                       <tr>
                         <td>Tipo Consegna</td>
@@ -96,11 +102,11 @@
                       </tr>
                       <tr>
                         <td>Costo Consegna</td>
-                        <th>$0.00</th>
+                        <th><i class="fa fa-eur" aria-hidden="true"></i>0.00</th>
                       </tr>
                       <tr class="total">
                         <td>Totale</td>
-                        <th>$456.00</th>
+                        <th><i class="fa fa-eur" aria-hidden="true"></i><?php echo $cart->getTotale();?></th>
                       </tr>
                     </tbody>
                   </table>
