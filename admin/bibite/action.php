@@ -2,16 +2,16 @@
 //start session
 session_start();
 $homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
-require_once  $homedir.'/pizzeria2/db.php';
+require_once  $homedir.'/pizzeria/db.php';
     $db = new DB();
 
-$tblName = 'Pizze';
+$tblName = 'Bibite';
 
 //set default redirect url
 $redirectURL = 'index.php';
 
 if(isset($_POST['formSubmit'])){
-    if(!empty($_POST['nome_pizza']) && !empty($_POST['ingredienti']) && !empty($_POST['prezzo'])){
+    if(!empty($_POST['nome_bibite']) && !empty($_POST['dimensione']) && !empty($_POST['prezzo'])){
         if(!is_numeric($_POST['prezzo'])){
             $sessData['status']['type'] = 'error';
             $sessData['status']['msg'] = 'Prezzo deve essere un numero';
@@ -20,8 +20,8 @@ if(isset($_POST['formSubmit'])){
         if(!empty($_POST['id'])){
             //update data
             $userData = array(
-                'nome_pizza' => $_POST['nome_pizza'],
-                'ingredienti' => $_POST['ingredienti'],
+                'nome_bibite' => $_POST['nome_bibite'],
+                'dimensione' => $_POST['dimensione'],
                 'prezzo' => (float)$_POST['prezzo']
             );
             $condition = array('id' => (int)$_POST['id']);
@@ -39,8 +39,8 @@ if(isset($_POST['formSubmit'])){
         }else{
             //insert data
             $userData = array(
-                'nome_pizza' => $_POST['nome_pizza'],
-                'ingredienti' => $_POST['ingredienti'],
+                'nome_bibite' => $_POST['nome_bibite'],
+                'dimensione' => $_POST['dimensione'],
                 'prezzo' => $_POST['prezzo']
             );
             $insert = $db->insert($tblName, $userData);

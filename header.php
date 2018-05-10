@@ -24,16 +24,14 @@
                   <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
                 </ul>
                 <?php if($user==null): ?>
-                  <div class="login"><a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Login</span></a><a href="register.php" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Registrati</span></a></div>
+                  <div class="login">
+                    <a href="#" data-toggle="modal" data-target="#login-modal" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Login</span></a>
+                    <a href="register.php" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Registrati</span></a>
+                    <a href="/pizzeria2/admin/index.php" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Admin</span></a>
+                  </div>
                 <?php  else:?>
                 <div>Salve <?php echo $user->username; ?></div>
-                <?php endif; ?>
-                <ul class="social-custom list-inline">
-                  <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                  <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                  <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                  <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
-                </ul>
+                <?php endif; ?>                
               </div>
             </div>
           </div>
@@ -45,7 +43,7 @@
         <div role="document" class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 id="login-modalLabel" class="modal-title">Customer Login</h4>
+              <h4 id="login-modalLabel" class="modal-title">Login</h4>
               <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
@@ -63,6 +61,7 @@
               </form>
               <p class="text-center text-muted">Non sei ancora registrato</p>
               <p class="text-center text-muted"><a href="register.php"><strong>Registrati</strong></a></p>
+               
             </div>
           </div>
         </div>

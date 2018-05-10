@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <?php 
-      $homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
-      include $homedir.'/pizzeria2/head.php'; 
-      ?>
+  <head>
+    <meta charset="utf-8">
+    <title>Pizzeria Rosso Blu - Panini</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="/pizzeria/assets/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="/pizzeria/assets/css/style.css">
+  </head>
 
   <body>
 
@@ -16,10 +19,10 @@ session_start();
 $sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:'';
 $homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
 
-require_once  $homedir.'/pizzeria2/db.php';
+require_once  $homedir.'/pizzeria/db.php';
 $db = new DB();
 
-$pizze = $db->getRows('Pizze',array('order_by'=>'prezzo'));
+$panini = $db->getRows('Panini',array('order_by'=>'prezzo'));
 
 //get status message from session
 if(!empty($sessData['status']['msg'])){
@@ -31,7 +34,7 @@ if(!empty($sessData['status']['msg'])){
 
   <?php 
   $homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
-  include $homedir.'/pizzeria2/header.php';
+  include $homedir.'/pizzeria/menu.php';
   
   ?>
   <body>
@@ -56,14 +59,14 @@ if(!empty($sessData['status']['msg'])){
                 </tr>
             </thead>
             <tbody id="userData">
-                <?php if(!empty($pizze)): $count = 0; foreach($pizze as $pizza): $count++; ?>
+                <?php if(!empty($panini)): $count = 0; foreach($panini as $panino): $count++; ?>
                 <tr>
-                    <td><?php echo $pizza['nome_pizza']; ?></td>
-                    <td><?php echo $pizza['ingredienti']; ?></td>
-                    <td><?php echo $pizza['prezzo']; ?></td>
+                    <td><?php echo $panino['nome_panino']; ?></td>
+                    <td><?php echo $panino['ingredienti']; ?></td>
+                    <td><?php echo $panino['prezzo']; ?></td>
                     <td>
-                        <a href="addEdit.php?id=<?php echo $pizza['id']; ?>"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a href="action.php?action_type=delete&id=<?php echo $pizza['id']; ?>" class="glyphicon glyphicon-trash" onclick="return confirm('Sei sicuro di eliminare?')"></a>
+                        <a href="addEdit.php?id=<?php echo $panino['id']; ?>"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="action.php?action_type=delete&id=<?php echo $panino['id']; ?>" class="glyphicon glyphicon-trash" onclick="return confirm('Sei sicuro di eliminare?')"></a>
                     </td>
                 </tr>
                 <?php endforeach; else: ?>
@@ -73,8 +76,12 @@ if(!empty($sessData['status']['msg'])){
         </table>
     </div>
 </div>
-<?php include $homedir.'/pizzeria2/footer.php';?>
+<?php include $homedir.'/pizzeria/footer.php';?>
 
+    <script src="/pizzeria/assets/scripts/jquery.min.js"></script>
+    <script src="/pizzeria/assets/scripts/popper.min.js"></script>
+    <script src="/pizzeria/assets/scripts/bootstrap.min.js"></script>
+    <script src="/pizzeria/assets/scripts/custom.js"></script>
   </body>
 </html>
 
