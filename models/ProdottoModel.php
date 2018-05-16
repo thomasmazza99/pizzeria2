@@ -31,7 +31,7 @@ class ProdottoModel{
             case 'bibite':
                 $this->titolo=$row['nome_bibite'];
                 $this->descrizione="cl ".$row['dimensione'];
-                $this->prezzo=$row['Prezzo'];
+                $this->prezzo=$row['prezzo'];
                 break;
             default:
                 break;

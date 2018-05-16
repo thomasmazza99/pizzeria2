@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8"
-    <title>Pizzeria Rosso Blu - Insalate</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="/pizzeria/assets/css/bootstrap.min.css" media="screen">
-    <link rel="stylesheet" href="/pizzeria/assets/css/style.css">
-  </head>
+
+    <?php 
+      $homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
+      include $homedir.'/pizzeria2/head.php'; 
+      ?>
 
   <body>
 
 <?php
-//start session
-session_start();
+require_once  $homedir.'/pizzeria2/models/CarrelloModel.php';
+require_once  $homedir.'/pizzeria2/models/UserModel.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 //get session data
 $sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:'';
-$homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
 
-require_once  $homedir.'/pizzeria/db.php';
+require_once  $homedir.'/pizzeria2/models/db.php';
 $db = new DB();
 
 $insalate = $db->getRows('Insalate',array('order_by'=>'prezzo'));
@@ -34,7 +33,7 @@ if(!empty($sessData['status']['msg'])){
 
   <?php 
   $homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
-  include $homedir.'/pizzeria/menu.php';
+  include $homedir.'/pizzeria2/header.php';
   
   ?>
   <body>
@@ -65,8 +64,8 @@ if(!empty($sessData['status']['msg'])){
                     <td><?php echo $insalata['ingredienti']; ?></td>
                     <td><?php echo $insalata['prezzo']; ?></td>
                     <td>
-                        <a href="addEdit.php?id=<?php echo $insalata['id']; ?>"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a href="action.php?action_type=delete&id=<?php echo $insalata['id']; ?>" class="glyphicon glyphicon-trash" onclick="return confirm('Sei sicuro di eliminare?')"></a>
+                        <a href="addEdit.php?id=<?php echo $insalata['id']; ?>" class="btn btn-template-outlined"><i class="fa fa-pencil"></i></a>
+                        <a href="action.php?action_type=delete&id=<?php echo $insalata['id']; ?>" onclick="return confirm('Sei sicuro di eliminare?')" class="btn btn-template-outlined" ><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
                 <?php endforeach; else: ?>

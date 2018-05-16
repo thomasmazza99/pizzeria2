@@ -7,43 +7,52 @@ class CarrelloModel{
  
     // database connection and table name
     private $conn;
-
+    private $aumentoGrandezza = 2;
     public $items;
+    public $ritiro = true;
  
     // constructor
-    public function __construct(){
+    public function __construct($ritiro){
         $this->conn = new DB();
         $this->items=array();
+        $this->ritiro=$ritiro;
     }
-    public function add($product_id, $quantity, $tipo){
+    public function add($product_id, $quantity, $tipo, $grandezza=''){
         $prodottiModel=new ProdottiModel();
         $prodotto=$prodottiModel->getProdotto($product_id,$tipo);
-        $item=$this->getItem($product_id,$tipo);
+        $item=$this->getItem($product_id,$tipo, $grandezza);
         if($item==null){
             $item=new CarrelloItemModel();
             $item->product_id = $product_id;
             $item->quantity = $quantity;
             $item->tipo = $tipo;
             $item->img=$prodotto->img;
-            $item->titolo=$prodotto->titolo;
-            $item->prezzo=$prodotto->prezzo;
+            $item->titolo=$prodotto->titolo;            
+            if($grandezza && $grandezza=="doppioimpasto"){
+                $item->prezzo=$prodotto->prezzo + $this->aumentoGrandezza;
+                $item->grandezza=$grandezza;
+            }else{
+                $item->prezzo=$prodotto->prezzo;
+
+            }
             array_push($this->items,$item);
         }
         else{
             $item->quantity++;
+
         }
     }
 
-    public function aggiorna($product_id, $quantity, $tipo){
-        $item=$this->getItem($product_id,$tipo);  
+    public function aggiorna($product_id, $quantity, $tipo, $grandezza = ''){
+        $item=$this->getItem($product_id,$tipo,$grandezza);  
         if($item!=null){
             $item->quantity=$quantity;
         }
     }
-    public function delete($product_id, $tipo){
+    public function delete($product_id, $tipo, $grandezza = ''){
         foreach($this->items as $index => $element) {
             $item=$this->items[$index];
-            if($item->product_id==$product_id && $item->tipo==$tipo)
+            if($item->product_id==$product_id && $item->tipo==$tipo && $item->grandezza==$grandezza)
             {
                  array_splice($this->items,$index,1);
             }
@@ -59,10 +68,10 @@ class CarrelloModel{
         return $somma;
     }
 
-    public function getItem($product_id,$tipo){
+    public function getItem($product_id,$tipo, $grandezza=''){
         foreach($this->items as $index => $element) {
             $item=$this->items[$index];
-            if($item->product_id==$product_id && $item->tipo==$tipo)
+            if($item->product_id==$product_id && $item->tipo==$tipo && $item->grandezza==$grandezza)
             {
                  return $item;
             }

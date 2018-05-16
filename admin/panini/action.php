@@ -2,7 +2,7 @@
 //start session
 session_start();
 $homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
-require_once  $homedir.'/pizzeria/db.php';
+require_once  $homedir.'/pizzeria2/models/db.php';
     $db = new DB();
 
 $tblName = 'Panini';

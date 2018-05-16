@@ -34,15 +34,19 @@
                     <div> <img src="<?php echo $prodotto->img; ?>" alt="" class="img-fluid"></div>
                   </div>
                 </div>
-                <div class="col-sm-6">
-                  <div class="box">
-                    <form method="post" action="carrello.php?id_product=<?php echo $prodotto->id; ?>&tipo=<?php echo $prodotto->tipo; ?>">
+                <div class="col-sm-6">                
+                    <div class="box">                   
+                    <form method="POST" action="carrello.php">
+                      <input type="hidden" name="id_product" value="<?php echo $prodotto->id; ?>">
+                      <input type="hidden" name="tipo" value="<?php echo $prodotto->tipo; ?>">
                       <div class="sizes">
+                      <?php if($tipo!=null && ($tipo=='pizze' || $tipo=='panini')): ?>
                         <h3>Grandezza</h3>
-                        <select class="bs-select">
+                        <select class="bs-select" name="grandezza">
                           <option value="normale">Normale</option>
-                          <option value="gigante">Doppio Impasto</option>
-                        </select>
+                          <option value="doppioimpasto">Doppio Impasto +2€</option>
+                        </select>                        
+                    <?php endif; ?>
                       </div>
                       <p class="price"><i class="fa fa-eur" aria-hidden="true"></i> <?php echo $prodotto->prezzo; ?></p>
                       <p class="text-center">

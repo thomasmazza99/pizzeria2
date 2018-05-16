@@ -13,12 +13,16 @@
    
     <section id="content">
       <div class="container">
+      <div class="row bar">
+      <div class="col-lg-12">
       <div class="list-group">
           <a href="/pizzeria2/admin/pizze" class="list-group-item">Pizze</a>
           <a href="/pizzeria2/admin/panini" class="list-group-item">Panini</a>
           <a href="/pizzeria2/admin/insalate" class="list-group-item">Insalate</a>
           <a href="/pizzeria2/admin/bibite" class="list-group-item">Bibite</a>
         </div>
+      </div>
+      </div>
       </div>
     </section>
    <?php include $homedir.'/pizzeria2/footer.php';?>

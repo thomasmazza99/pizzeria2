@@ -9,14 +9,16 @@
   <body>
 
 <?php
-//start session
-session_start();
+require_once  $homedir.'/pizzeria2/models/CarrelloModel.php';
+require_once  $homedir.'/pizzeria2/models/UserModel.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 //get session data
 $sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:'';
-$homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
 
-require_once  $homedir.'/pizzeria2/db.php';
+require_once  $homedir.'/pizzeria2/models/db.php';
 $db = new DB();
 
 $pizze = $db->getRows('Pizze',array('order_by'=>'prezzo'));
@@ -62,8 +64,8 @@ if(!empty($sessData['status']['msg'])){
                     <td><?php echo $pizza['ingredienti']; ?></td>
                     <td><?php echo $pizza['prezzo']; ?></td>
                     <td>
-                        <a href="addEdit.php?id=<?php echo $pizza['id']; ?>"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a href="action.php?action_type=delete&id=<?php echo $pizza['id']; ?>" class="glyphicon glyphicon-trash" onclick="return confirm('Sei sicuro di eliminare?')"></a>
+                        <a href="addEdit.php?id=<?php echo $pizza['id']; ?>" class="btn btn-template-outlined"><i class="fa fa-pencil"></i></a>
+                        <a href="action.php?action_type=delete&id=<?php echo $pizza['id']; ?>" onclick="return confirm('Sei sicuro di eliminare?')" class="btn btn-template-outlined" ><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
                 <?php endforeach; else: ?>

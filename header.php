@@ -30,7 +30,7 @@
                     <a href="/pizzeria2/admin/index.php" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Admin</span></a>
                   </div>
                 <?php  else:?>
-                <div>Salve <?php echo $user->username; ?></div>
+                <div>Salve <?php echo $user->username; ?> <a href="logout.php" class="signup-btn"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="d-none d-md-inline-block">Logout</span></a> </div>
                 <?php endif; ?>                
               </div>
             </div>
@@ -70,17 +70,17 @@
       <!-- Navbar Start-->
       <header class="nav-holder make-sticky">
         <div id="navbar" role="navigation" class="navbar navbar-expand-lg">
-          <div class="container"><a href="index.php" class="navbar-brand home"><img src="img/logo.png" alt="Universal logo" class="d-none d-md-inline-block"><img src="img/logo-small.png" alt="Universal logo" class="d-inline-block d-md-none"><span class="sr-only">Pizzeria Rosso Blu</span></a>
+          <div class="container"><a href="index.php" class="navbar-brand home"><img src="/pizzeria2/img/logo.png" alt="Universal logo" class="d-none d-md-inline-block"><img src="/pizzeria2/img/logo-small.png" alt="Universal logo" class="d-inline-block d-md-none"><span class="sr-only">Pizzeria Rosso Blu</span></a>
             <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
             <div id="navigation" class="navbar-collapse collapse">
               <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item dropdown"><a href="/pizzeria2" >Home </a>
                 </li>
-                <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Prodotti<b class="caret"></b></a>
+                <li class="nav-item dropdown menu-large"><a href="prodotti.php" data-toggle="dropdown" class="dropdown-toggle">Prodotti<b class="caret"></b></a>
                   <ul class="dropdown-menu megamenu">
                     <li>
                       <div class="row">
-                        <div class="col-lg-3"><img src="img/mega-menu-prodotti.jpg" alt="" class="img-fluid d-none d-lg-block"></div>
+                        <div class="col-lg-3"><img src="/pizzeria2/img/mega-menu-prodotti.jpg" alt="" class="img-fluid d-none d-lg-block"></div>
                         <div class="col-lg-3 col-md-3">
                           <h5>Pizze</h5>
                           <ul class="list-unstyled mb-3">

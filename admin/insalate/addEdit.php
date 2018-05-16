@@ -1,17 +1,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Pizzeria Rosso Blu - Insalate</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="/pizzeria/assets/css/bootstrap.min.css" media="screen">
-    <link rel="stylesheet" href="/pizzeria/assets/css/style.css">
-  </head>
-  <?php 
-  $homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
-  include $homedir.'/pizzeria/menu.php';?>
+<?php 
+      $homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
+      include $homedir.'/pizzeria2/head.php'; 
+      ?>
   <body>
   	
 <?php
@@ -24,7 +17,7 @@ $sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:'';
 //get user data
 if(!empty($_GET['id'])){
     
-    require_once  $homedir.'/pizzeria/db.php';
+    require_once  $homedir.'/pizzeria2/models/db.php';
     $db = new DB();
     $conditions['where'] = array(
         'id' => $_GET['id'],
@@ -43,13 +36,20 @@ if(!empty($sessData['status']['msg'])){
 }
 ?>
 
-<div class="container" id="page-content">
+<div id="wrapper">
+    <!-- start header -->
+    <?php include $homedir.'/pizzeria2/header.php';?>
+    <!-- end header -->
+   
+    <div id="content">
+    <div class="container">
     <?php if(!empty($statusMsg) && ($statusMsgType == 'success')){ ?>
     <div class="alert alert-success"><?php echo $statusMsg; ?></div>
     <?php }elseif(!empty($statusMsg) && ($statusMsgType == 'error')){ ?>
     <div class="alert alert-danger"><?php echo $statusMsg; ?></div>
     <?php } ?>
-    <div class="row">
+    <div class="row bar">
+    <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading"><?php echo $actionLabel; ?> Insalate <a href="index.php" class="glyphicon glyphicon-arrow-left"></a></div>
             <div class="panel-body">
@@ -68,19 +68,14 @@ if(!empty($sessData['status']['msg'])){
                     </div>
                     <input type="hidden" name="id" value="<?php echo !empty($row['id'])?$row['id']:''; ?>">
                     <input type="submit" name="formSubmit" class="btn btn-success" value="<?php echo $actionLabel; ?>"/>
-                </form>
+                    </form>
             </div>
         </div>
+        </div>
     </div>
+    </div>
+   <?php include $homedir.'/pizzeria2/footer.php';?>
+  </div>
 
-	<?php include $homedir.'/pizzeria/footer.php';?>
-    
-</div>
-
-
-    <script src="/pizzeria/assets/scripts/jquery.min.js"></script>
-    <script src="/pizzeria/assets/scripts/popper.min.js"></script>
-    <script src="/pizzeria/assets/scripts/bootstrap.min.js"></script>
-    <script src="/pizzeria/assets/scripts/custom.js"></script>
   </body>
 </html>

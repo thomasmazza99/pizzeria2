@@ -38,26 +38,18 @@
                     </li>
                     <li class="nav-item"><a href="prodotti.php?ritiro=<?php echo $ritiro ?>&tipo=panini" class="nav-link d-flex <?php echo $tipo==='panini'?'active':''; ?> align-items-center justify-content-between"><span>Panini  </span><span class="badge badge-secondary"><?php echo $prodottiModel->countPanini(); ?></span></a>
                       <ul class="nav nav-pills flex-column">
-                        <li class="nav-item"><a href="prodotti.php" class="nav-link">T-shirts</a></li>
-                        <li class="nav-item"><a href="prodotti.php" class="nav-link">Skirts</a></li>
-                        <li class="nav-item"><a href="prodotti.php" class="nav-link">Pants</a></li>
-                        <li class="nav-item"><a href="prodotti.php" class="nav-link">Accessories</a></li>
+                        <li class="nav-item"><a href="prodotti.php" class="nav-link">Panini Speciali</a></li>
+                     
                       </ul>
                     </li>
                     <li class="nav-item"><a href="prodotti.php?ritiro=<?php echo $ritiro ?>&tipo=insalate" class="nav-link d-flex <?php echo $tipo==='insalate'?'active':''; ?> align-items-center justify-content-between"><span>Insalate  </span><span class="badge badge-secondary"><?php echo $prodottiModel->countInsalate(); ?></span></a>
                       <ul class="nav nav-pills flex-column">
                         <li class="nav-item"><a href="prodotti.php" class="nav-link">T-shirts</a></li>
-                        <li class="nav-item"><a href="prodotti.php" class="nav-link">Skirts</a></li>
-                        <li class="nav-item"><a href="prodotti.php" class="nav-link">Pants</a></li>
-                        <li class="nav-item"><a href="prodotti.php" class="nav-link">Accessories</a></li>
                       </ul>
                     </li>
                     <li class="nav-item"><a href="prodotti.php?ritiro=<?php echo $ritiro ?>&tipo=bibite" class="nav-link d-flex <?php echo $tipo==='bibite'?'active':''; ?> align-items-center justify-content-between"><span>Bibite  </span><span class="badge badge-secondary"><?php echo $prodottiModel->countBibite(); ?></span></a>
                       <ul class="nav nav-pills flex-column">
                         <li class="nav-item"><a href="prodotti.php" class="nav-link">T-shirts</a></li>
-                        <li class="nav-item"><a href="prodotti.php" class="nav-link">Skirts</a></li>
-                        <li class="nav-item"><a href="prodotti.php" class="nav-link">Pants</a></li>
-                        <li class="nav-item"><a href="prodotti.php" class="nav-link">Accessories</a></li>
                       </ul>
                     </li>
                   </ul>

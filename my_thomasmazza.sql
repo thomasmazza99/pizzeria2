@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `Bibite` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome_bibite` varchar(255) NOT NULL,
   `dimensione` float NOT NULL,
-  `Prezzo` int(11) NOT NULL,
+  `prezzo` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `Bibite` (
 -- Dump dei dati per la tabella `bibite`
 --
 
-INSERT INTO `Bibite` (`id`, `nome_bibite`, `dimensione`, `Prezzo`) VALUES
+INSERT INTO `Bibite` (`id`, `nome_bibite`, `dimensione`, `prezzo`) VALUES
 (1, 'coca-cola ', 33, 2);
 
 -- --------------------------------------------------------

@@ -9,8 +9,14 @@ class CarrelloItemModel{
     public $img;
     public $titolo;
     public $prezzo;
+    public $grandezza;
     // constructor
     public function __construct(){
         
     }
+    public function getTotale(){
+        $totale=$this->prezzo * $this->quantity;
+        return $totale;
+    }
+
 }

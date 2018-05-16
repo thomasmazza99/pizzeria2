@@ -17,7 +17,7 @@ $sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:'';
 //get user data
 if(!empty($_GET['id'])){
     
-    require_once  $homedir.'/pizzeria2/db.php';
+    require_once  $homedir.'/pizzeria2/models/db.php';
     $db = new DB();
     $conditions['where'] = array(
         'id' => $_GET['id'],
@@ -36,13 +36,20 @@ if(!empty($sessData['status']['msg'])){
 }
 ?>
 
-<div class="container" id="page-content">
+<div id="wrapper">
+    <!-- start header -->
+    <?php include $homedir.'/pizzeria2/header.php';?>
+    <!-- end header -->
+   
+    <div id="content">
+    <div class="container">
     <?php if(!empty($statusMsg) && ($statusMsgType == 'success')){ ?>
     <div class="alert alert-success"><?php echo $statusMsg; ?></div>
     <?php }elseif(!empty($statusMsg) && ($statusMsgType == 'error')){ ?>
     <div class="alert alert-danger"><?php echo $statusMsg; ?></div>
     <?php } ?>
-    <div class="row">
+    <div class="row bar">
+    <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading"><?php echo $actionLabel; ?> Pizza <a href="index.php" class="glyphicon glyphicon-arrow-left"></a></div>
             <div class="panel-body">
@@ -64,11 +71,12 @@ if(!empty($sessData['status']['msg'])){
                 </form>
             </div>
         </div>
+        </div>
     </div>
+    </div>
+   <?php include $homedir.'/pizzeria2/footer.php';?>
+  </div>
 
-	<?php include $homedir.'/pizzeria2/footer.php';?>
-    
-</div>
 
 
   </body>

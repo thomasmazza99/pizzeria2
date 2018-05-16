@@ -8,15 +8,22 @@
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
     }
-    $cart = !empty($_SESSION['cart'])?$_SESSION['cart']:new CarrelloModel();
-
+    $ritiro=true;
+    if(isset($_REQUEST['ritiro'])){
+      $ritiro=$_REQUEST['ritiro'];
+    }
+    $cart = !empty($_SESSION['cart'])?$_SESSION['cart']:new CarrelloModel($ritiro);
+    $grandezza='';
+    if(isset($_REQUEST['grandezza'])){
+      $grandezza=$_REQUEST['grandezza'];
+    }
     if(isset($_REQUEST['id_product']) && isset($_REQUEST['tipo'])){
-        if(isset($_REQUEST['action'])&&$_REQUEST['action']=='delete'){
-             $cart->delete($_REQUEST['id_product'],$_REQUEST['tipo']);
-        }elseif(isset($_REQUEST['action'])&&$_REQUEST['action']=='aggiorna'){
-          $cart->aggiorna($_REQUEST['id_product'], $_REQUEST['quantity'], $_REQUEST['tipo']);
+        if(isset($_REQUEST['action'])&& $_REQUEST['action']=='delete'){
+             $cart->delete($_REQUEST['id_product'],$_REQUEST['tipo'],$grandezza );
+        }elseif(isset($_REQUEST['action'])&& $_REQUEST['action']=='aggiorna'){
+          $cart->aggiorna($_REQUEST['id_product'], $_REQUEST['quantity'], $_REQUEST['tipo'],$grandezza );
         }else{
-            $cart->add($_REQUEST['id_product'], 1, $_REQUEST['tipo']);
+            $cart->add($_REQUEST['id_product'], 1, $_REQUEST['tipo'],$grandezza );
         }
         
         $_SESSION['cart'] = $cart;
@@ -45,7 +52,8 @@
                           <th colspan="2">Prodotto</th>
                           <th>Quantità</th>
                           <th>Prezzo Unitario</th>
-                          <th colspan="2">Total</th>
+                          <th>Dimensione</th>
+                          <th colspan="2">Totale</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -58,7 +66,11 @@
                               <input type="number" name="quantity" value="<?php echo $item->quantity;?>" class="form-control">
                             </td>
                             <td><i class="fa fa-eur" aria-hidden="true"></i> <?php echo $item->prezzo;?></td>
-                            <td><i class="fa fa-eur" aria-hidden="true"></i> <?php echo $item->prezzo;?></td>
+                            <td>                          
+                              <?php echo $item->grandezza;?>
+                              <input type="hidden" name="grandezza" value="<?php echo $item->grandezza;?>"/>
+                            </td>
+                            <td><i class="fa fa-eur" aria-hidden="true"></i> <?php echo $item->getTotale();?></td>
                             <td>
                               <button type="submit" value="aggiorna" name="action" class="btn btn-template-outlined"><i class="fa fa-refresh"></i></button>
                               <button type="submit" value="delete" name="action" class="btn btn-template-outlined"><i class="fa fa-trash"></i></button>                              
@@ -78,7 +90,6 @@
                   <div class="box-footer d-flex justify-content-between align-items-center">
                     <div class="left-col"><a href="prodotti.php" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i> Vai ai prodotti</a></div>
                     <div class="right-col">
-                      <button class="btn btn-secondary"><i class="fa fa-refresh"></i> Aggiorna carrello</button>
                       <button type="submit" class="btn btn-template-outlined">Procedi con l'ordine <i class="fa fa-chevron-right"></i></button>
                     </div>
                   </div>
@@ -98,7 +109,13 @@
                       </tr>
                       <tr>
                         <td>Tipo Consegna</td>
-                        <th>ritiro pizzeria</th>
+                        <th>
+                        <?php if($cart && $cart->ritiro==true):?>
+                        <span> Ritiro Pizzeria</span>
+                        <?php else: ?>
+                        <span> Consegna a Domicilio</span>
+                        <?php endif?>
+                        </th>
                       </tr>
                       <tr>
                         <td>Costo Consegna</td>
