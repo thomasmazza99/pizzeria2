@@ -23,27 +23,27 @@
           <li class="d-flex align-items-center">
             <div class="image"><img src="/pizzeria2/img/detailsquare.jpg" alt="..." class="img-fluid"></div>
             <div class="text">
-              <h5 class="mb-0"> <a href="post.html">Blog post name</a></h5>
+              <h5 class="mb-0"> <a href="post.html">Blog</a></h5>
             </div>
           </li>
           <li class="d-flex align-items-center">
             <div class="image"><img src="/pizzeria2/img/detailsquare.jpg" alt="..." class="img-fluid"></div>
             <div class="text">
-              <h5 class="mb-0"> <a href="post.html">Blog post name</a></h5>
+              <h5 class="mb-0"> <a href="post.html">Blog</a></h5>
             </div>
           </li>
           <li class="d-flex align-items-center">
             <div class="image"><img src="/pizzeria2/img/detailsquare.jpg" alt="..." class="img-fluid"></div>
             <div class="text">
-              <h5 class="mb-0"> <a href="post.html">Very very long blog post name</a></h5>
+              <h5 class="mb-0"> <a href="post.html">Blog</a></h5>
             </div>
           </li>
         </ul>
         <hr class="d-block d-lg-none">
       </div>
       <div class="col-lg-3">
-        <h4 class="h6">Contact</h4>
-        <p class="text-uppercase"><strong>Universal Ltd.</strong><br>13/25 New Avenue <br>Newtown upon River <br>45Y 73J <br>England <br><strong>Great Britain</strong></p><a href="contact.html" class="btn btn-template-main">Go to contact page</a>
+        <h4 class="h6">Contatti</h4>
+        <p class="text-uppercase"><strong>Via Filippo Turati 36/B.</strong><br>0516153392 / 051430261 <br>pizzeriarossoblu@gmail.com <br><strong>Per qualsiasi informazione contattaci!!!</strong></p> 
         <hr class="d-block d-lg-none">
       </div>
       <div class="col-lg-3">
