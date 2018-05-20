@@ -80,7 +80,7 @@
                   <ul class="dropdown-menu megamenu">
                     <li>
                       <div class="row">
-                        <div class="col-lg-3"><img src="/pizzeria2/img/mega-menu-prodotti.jpg" alt="" class="img-fluid d-none d-lg-block"></div>
+                        <!--<div class="col-lg-3"><img src="/pizzeria2/img/mega-menu-prodotti.jpg" alt="" class="img-fluid d-none d-lg-block"></div>-->
                         <div class="col-lg-3 col-md-3">
                           <h5>Pizze</h5>
                           <ul class="list-unstyled mb-3">
@@ -101,17 +101,19 @@
                             <li class="nav-item"><a href="prodotti.php?tipo=insalate" class="nav-link">Le nostre insalate</a></li>
                           </ul>
                         </div>
+                        <div class="col-lg-3 col-md-3">
+                          <h5>Bibite</h5>
+                          <ul class="list-unstyled mb-3">
+                            <li class="nav-item"><a href="prodotti.php?tipo=bibite" class="nav-link">Le nostre bibite</a></li>
+                          </ul>
+                        </div>
                       </div>
                     </li>
                   </ul>
                 </li>
                 <!-- ========== Contact dropdown ==================-->
-                <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Contact <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li class="dropdown-item"><a href="contact.html" class="nav-link">Contact option 1</a></li>
-                    <li class="dropdown-item"><a href="contact2.html" class="nav-link">Contact option 2</a></li>
-                    <li class="dropdown-item"><a href="contact3.html" class="nav-link">Contact option 3</a></li>
-                  </ul>
+                <li class="nav-item dropdown"><a href="contattaci.php" class="nav-link">Contattaci </a>
+                  
                 </li>
                 <!-- ========== Contact dropdown end ==================-->
                 <!-- ========== Carrello ==================-->

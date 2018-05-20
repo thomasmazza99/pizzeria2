@@ -51,6 +51,7 @@ if(!empty($sessData['status']['msg'])){
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>Immagine</th>
                     <th>Nome</th>
                     <th>Ingredienti</th>
                     <th>Prezzo</th>
@@ -60,6 +61,7 @@ if(!empty($sessData['status']['msg'])){
             <tbody id="userData">
                 <?php if(!empty($pizze)): $count = 0; foreach($pizze as $pizza): $count++; ?>
                 <tr>
+                    <td><?php echo $pizza['immagine']; ?></td>
                     <td><?php echo $pizza['nome_pizza']; ?></td>
                     <td><?php echo $pizza['ingredienti']; ?></td>
                     <td><?php echo $pizza['prezzo']; ?></td>

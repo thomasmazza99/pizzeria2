@@ -3,42 +3,17 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
-        <h4 class="h6">About Us</h4>
+        <h4 class="h6">Accettiamo tutti i tipi di Buono Pasto</h4>
         <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-        <hr>
-        <h4 class="h6">Join Our Monthly Newsletter</h4>
-        <form>
-          <div class="input-group">
-            <input type="text" class="form-control">
-            <div class="input-group-append">
-              <button type="button" class="btn btn-secondary"><i class="fa fa-send"></i></button>
-            </div>
-          </div>
-        </form>
+        
+       
         <hr class="d-block d-lg-none">
       </div>
       <div class="col-lg-3">
-        <h4 class="h6">Blog</h4>
-        <ul class="list-unstyled footer-blog-list">
-          <li class="d-flex align-items-center">
-            <div class="image"><img src="/pizzeria2/img/detailsquare.jpg" alt="..." class="img-fluid"></div>
-            <div class="text">
-              <h5 class="mb-0"> <a href="post.html">Blog</a></h5>
-            </div>
-          </li>
-          <li class="d-flex align-items-center">
-            <div class="image"><img src="/pizzeria2/img/detailsquare.jpg" alt="..." class="img-fluid"></div>
-            <div class="text">
-              <h5 class="mb-0"> <a href="post.html">Blog</a></h5>
-            </div>
-          </li>
-          <li class="d-flex align-items-center">
-            <div class="image"><img src="/pizzeria2/img/detailsquare.jpg" alt="..." class="img-fluid"></div>
-            <div class="text">
-              <h5 class="mb-0"> <a href="post.html">Blog</a></h5>
-            </div>
-          </li>
-        </ul>
+        <h4 class="h6">Offerte <br> (escluso Margherita e Marinara)</h4>
+        <p class="text-uppercase">Ogni 3 pizze una Coca 0.5cl in omaggio </p>
+        <p class="text-uppercase">Ogni 4 pizze una Coca 1.5cl in omaggio </p>
+       
         <hr class="d-block d-lg-none">
       </div>
       <div class="col-lg-3">
@@ -46,7 +21,7 @@
         <p class="text-uppercase"><strong>Via Filippo Turati 36/B.</strong><br>0516153392 / 051430261 <br>pizzeriarossoblu@gmail.com <br><strong>Per qualsiasi informazione contattaci!!!</strong></p> 
         <hr class="d-block d-lg-none">
       </div>
-      <div class="col-lg-3">
+      <!--<div class="col-lg-3">
         <ul class="list-inline photo-stream">
           <li class="list-inline-item"><a href="#"><img src="/pizzeria2/img/detailsquare.jpg" alt="..." class="img-fluid"></a></li>
           <li class="list-inline-item"><a href="#"><img src="/pizzeria2/img/detailsquare2.jpg" alt="..." class="img-fluid"></a></li>
@@ -55,14 +30,14 @@
           <li class="list-inline-item"><a href="#"><img src="/pizzeria2/img/detailsquare2.jpg" alt="..." class="img-fluid"></a></li>
           <li class="list-inline-item"><a href="#"><img src="/pizzeria2/img/detailsquare.jpg" alt="..." class="img-fluid"></a></li>
         </ul>
-      </div>
+      </div>-->
     </div>
   </div>
   <div class="copyrights">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 text-center-md">
-          <p>&copy; 2018. Your company / name goes here</p>
+          <p>&copy; 2018. Pizzeria RossoBlu</p>
         </div>
         <div class="col-lg-8 text-right text-center-md">
           <p>Template design by <a href="https://bootstrapious.com/free-templates">Bootstrapious Templates </a></p>

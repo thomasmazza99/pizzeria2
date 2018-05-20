@@ -55,6 +55,10 @@ if(!empty($sessData['status']['msg'])){
             <div class="panel-body">
                 <form method="post" action="action.php" class="form">
                     <div class="form-group">
+                        <label for="immagine">Immagine</label>
+                        <input type="text" class="form-control" name="immagine" id="immagine" value="<?php echo !empty($row['immagine'])?$row['immagine']:''; ?>">
+                    </div>
+                    <div class="form-group">
                         <label for="nome_pizza">Nome</label>
                         <input type="text" class="form-control" name="nome_pizza" id="nome_pizza" value="<?php echo !empty($row['nome_pizza'])?$row['nome_pizza']:''; ?>">
                     </div>

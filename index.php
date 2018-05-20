@@ -22,7 +22,7 @@
                     <h1>Pizzeria Rosso Blu nasce nel 1996 per offrirvi il meglio dei servizi</h1>
                     <p>Guarda le nostre specialità</p>
                   </div>
-                  <div class="col-md-7"><img src="img/bg-pizza-1.jpg" alt="" class="img-fluid"></div>
+                  <div class="col-md-7"><img src="img/forno.jpg" alt="" class="img-fluid"></div>
                 </div>
               </div>
               <div class="item">
@@ -49,7 +49,7 @@
                       <li>40134</li>
                     </ul>
                   </div>
-                  <div class="col-md-7"><img src="img/bg-pizza-3.jpg" alt="" class="img-fluid"></div>
+                  <div class="col-md-7"><img src="img/viaturati.png" alt="" class="img-fluid"></div>
                 </div>
               </div>
             </div>
