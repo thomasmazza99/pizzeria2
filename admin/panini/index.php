@@ -51,6 +51,7 @@ if(!empty($sessData['status']['msg'])){
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>Immagine</th>
                     <th>Nome</th>
                     <th>Ingredienti</th>
                     <th>Prezzo</th>
@@ -60,6 +61,7 @@ if(!empty($sessData['status']['msg'])){
             <tbody id="userData">
                 <?php if(!empty($panini)): $count = 0; foreach($panini as $panino): $count++; ?>
                 <tr>
+                    <td><?php echo $panino['immagine']; ?></td>
                     <td><?php echo $panino['nome_panino']; ?></td>
                     <td><?php echo $panino['ingredienti']; ?></td>
                     <td><?php echo $panino['prezzo']; ?></td>

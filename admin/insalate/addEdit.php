@@ -54,6 +54,10 @@ if(!empty($sessData['status']['msg'])){
             <div class="panel-heading"><?php echo $actionLabel; ?> Insalate <a href="index.php" class="glyphicon glyphicon-arrow-left"></a></div>
             <div class="panel-body">
                 <form method="post" action="action.php" class="form">
+                     <div class="form-group">
+                        <label for="immagine">Immagine</label><br>
+                        <input type="file"  name="immagine" id="immagine" value="<?php echo !empty($row['immagine'])?$row['immagine']:''; ?>">
+                    </div>
                     <div class="form-group">
                         <label for="nome_insalate">Nome</label>
                         <input type="text" class="form-control" name="nome_insalate" id="nome_insalate" value="<?php echo !empty($row['nome_insalate'])?$row['nome_insalate']:''; ?>">

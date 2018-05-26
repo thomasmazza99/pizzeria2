@@ -11,7 +11,7 @@ $tblName = 'Panini';
 $redirectURL = 'index.php';
 
 if(isset($_POST['formSubmit'])){
-    if(!empty($_POST['nome_panino']) && !empty($_POST['ingredienti']) && !empty($_POST['prezzo'])){
+    if(!empty($_POST['immagine']) && !empty($_POST['nome_panino']) && !empty($_POST['ingredienti']) && !empty($_POST['prezzo'])){
         if(!is_numeric($_POST['prezzo'])){
             $sessData['status']['type'] = 'error';
             $sessData['status']['msg'] = 'Prezzo deve essere un numero';
@@ -20,6 +20,7 @@ if(isset($_POST['formSubmit'])){
         if(!empty($_POST['id'])){
             //update data
             $userData = array(
+                'immagine' => $_POST['immagine'],
                 'nome_panino' => $_POST['nome_panino'],
                 'ingredienti' => $_POST['ingredienti'],
                 'prezzo' => (float)$_POST['prezzo']
@@ -39,6 +40,7 @@ if(isset($_POST['formSubmit'])){
         }else{
             //insert data
             $userData = array(
+                'immagine' => $_POST['immagine'],
                 'nome_panino' => $_POST['nome_panino'],
                 'ingredienti' => $_POST['ingredienti'],
                 'prezzo' => $_POST['prezzo']

@@ -149,6 +149,7 @@ CREATE TABLE IF NOT EXISTS `panini_ordini` (
 
 CREATE TABLE IF NOT EXISTS `Pizze` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `immagine` varchar(255) NOT NULL,
   `nome_pizza` varchar(255) NOT NULL,
   `ingredienti` varchar(1024) NOT NULL,
   `prezzo` float NOT NULL,
@@ -159,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `Pizze` (
 -- Dump dei dati per la tabella `Pizze`
 --
 
-INSERT INTO `Pizze` (`id`, `nome_pizza`, `ingredienti`, `prezzo`) VALUES
+INSERT INTO `Pizze` (`id`, `immagine`, `nome_pizza`, `ingredienti`, `prezzo`) VALUES
 (1, 'Marinara', 'pomodoro, origano, aglio', 3.3),
 (2, 'Margherita', 'pomodoro, mozzarella', 3.7),
 (3, 'Funghi', 'pomodoro, mozzarella, funghi', 4.7),
@@ -184,18 +185,7 @@ INSERT INTO `Pizze` (`id`, `nome_pizza`, `ingredienti`, `prezzo`) VALUES
 (22, 'Crudo ', 'Pomodoro, mozzarella, Prosciutto crudo ', 5.5),
 (23, 'Speck', 'Pomodoro, mozzarella, Speck', 5.5),
 (24, 'Affumicata ', 'Pomodoro, mozzarella, Cotto, salsiccia, funghi, carciofi, scamorza ', 5.7),
-(29, 'ciao', 'CIAO', 6),
-(30, 'ciao', 'cao', 6),
-(31, 'Marinarnhxj', 'pomodoro, origano, aglio.', 3.3),
-(32, 'PAPpa', 'dsadsa', 60),
 (33, 'Verdure Miste', 'pomodoro, mozzarella, verdure miste grigliate', 6),
-(34, 'Verdir', 'dsadsa gfh', 10),
-(35, 'Verdir mod', 'dsadsa gfh', 10),
-(36, 'Verdir mod 1', 'dsadsa gfh', 10),
-(37, 'Verdir mod 2', 'dsadsa gfh', 10),
-(38, 'Verdir mod 4', 'dsadsa gfh', 10),
-(40, 'SDJK', 'ppp', 6),
-(41, '03', 'Verdure', 6);
 
 -- --------------------------------------------------------
 

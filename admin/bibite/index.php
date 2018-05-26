@@ -51,6 +51,7 @@ if(!empty($sessData['status']['msg'])){
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <th>Immagine</th>
                     <th>Nome</th>
                     <th>Dimensione</th>
                     <th>Prezzo</th>
@@ -60,6 +61,7 @@ if(!empty($sessData['status']['msg'])){
             <tbody id="userData">
                 <?php if(!empty($bibite)): $count = 0; foreach($bibite as $bibita): $count++; ?>
                 <tr>
+                    <td><?php echo $bibita['immagine']; ?></td>
                     <td><?php echo $bibita['nome_bibite']; ?></td>
                     <td><?php echo $bibita['dimensione']; ?></td>
                     <td><?php echo $bibita['prezzo']; ?></td>
