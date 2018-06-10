@@ -56,7 +56,7 @@ if(!empty($sessData['status']['msg'])){
                 <form method="post" action="action.php" class="form" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="immagine">Immagine</label><br>
-                        <input type="file"  name="immagine" id="immagine" value="<?php echo !empty($row['immagine'])?$row['immagine']:''; ?>">
+                        <input type="file"  name="immagine"> <?php echo !empty($row['immagine'])?$row['immagine']:''; ?>
                     </div>
                     <div class="form-group">
                         <label for="nome_pizza">Nome</label>

@@ -129,7 +129,7 @@ class DB{
             }
             $query = "UPDATE ".$table." SET ".$colvalSet.$whereSql;
             $update = $this->db->query($query);
-            return $update?$this->db->affected_rows:false;
+            return $update;
         }else{
             return false;
         }
