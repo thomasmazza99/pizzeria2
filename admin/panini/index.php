@@ -61,7 +61,7 @@ if(!empty($sessData['status']['msg'])){
             <tbody id="userData">
                 <?php if(!empty($panini)): $count = 0; foreach($panini as $panino): $count++; ?>
                 <tr>
-                    <td><?php echo $panino['immagine']; ?></td>
+                    <td><img src="/pizzeria2/img/<?php echo $panino['immagine']; ?>"></td>
                     <td><?php echo $panino['nome_panino']; ?></td>
                     <td><?php echo $panino['ingredienti']; ?></td>
                     <td><?php echo $panino['prezzo']; ?></td>

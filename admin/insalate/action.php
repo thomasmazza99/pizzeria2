@@ -4,23 +4,25 @@ session_start();
 $homedir = substr($_SERVER['SCRIPT_FILENAME'],0,-strlen($_SERVER['SCRIPT_NAME']) );
 require_once  $homedir.'/pizzeria2/models/db.php';
     $db = new DB();
-
+    require_once  $homedir.'/pizzeria2/models/ImmaginiUploader.php';
+    $immaginiUploader=new ImmaginiUploader();
 $tblName = 'Insalate';
 
 //set default redirect url
 $redirectURL = 'index.php';
 
 if(isset($_POST['formSubmit'])){
-    if(!empty($_POST['immagine']) && !empty($_POST['nome_insalate']) && !empty($_POST['ingredienti']) && !empty($_POST['prezzo'])){
+    if(!empty($_POST['nome_insalate']) && !empty($_POST['ingredienti']) && !empty($_POST['prezzo'])){
         if(!is_numeric($_POST['prezzo'])){
             $sessData['status']['type'] = 'error';
             $sessData['status']['msg'] = 'Prezzo deve essere un numero';
             $redirectURL = 'addEdit.php';
         }else{
+            $nomeFile=isset($_FILES['immagine']['name'])?$_FILES['immagine']['name']:null;
         if(!empty($_POST['id'])){
             //update data
             $userData = array(
-                'immagine' => $_POST['immagine'],
+                'immagine' => $nomeFile,
                 'nome_insalate' => $_POST['nome_insalate'],
                 'ingredienti' => $_POST['ingredienti'],
                 'prezzo' => (float)$_POST['prezzo']
@@ -40,7 +42,7 @@ if(isset($_POST['formSubmit'])){
         }else{
             //insert data
             $userData = array(
-                'immagine' => $_POST['immagine'],   
+                'immagine' => $nomeFile,  
                 'nome_insalate' => $_POST['nome_insalate'],
                 'ingredienti' => $_POST['ingredienti'],
                 'prezzo' => $_POST['prezzo']
@@ -57,6 +59,7 @@ if(isset($_POST['formSubmit'])){
                 $redirectURL = 'addEdit.php';
             }
         }
+        $immaginiUploader->Upload('immagine');
     }
     }else{
         $sessData['status']['type'] = 'error';

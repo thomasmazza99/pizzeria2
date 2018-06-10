@@ -14,7 +14,7 @@
         <?php if(!empty($prodotti)): $count = 0; foreach($prodotti as $item): $count++; ?>
         <div class="col-sm-3">
             <div class="box-image">
-                <div class="image"><img src="img/portfolio-1.jpg" alt="" class="img-fluid">
+                <div class="image"><img src="<?php echo $item->img ?>" alt="" class="img-fluid">
                     <div class="overlay d-flex align-items-center justify-content-center">
                         <div class="content">
                             <div class="name">

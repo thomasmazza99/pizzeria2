@@ -61,7 +61,7 @@ if(!empty($sessData['status']['msg'])){
             <tbody id="userData">
                 <?php if(!empty($insalate)): $count = 0; foreach($insalate as $insalata): $count++; ?>
                 <tr>
-                    <td><?php echo $insalata['immagine']; ?></td>
+                    <td><img src="/pizzeria2/img/<?php echo $insalata['immagine']; ?>"></td>
                     <td><?php echo $insalata['nome_insalate']; ?></td>
                     <td><?php echo $insalata['ingredienti']; ?></td>
                     <td><?php echo $insalata['prezzo']; ?></td>

@@ -11,8 +11,8 @@ class ProdottoModel{
         $this->tipo=$tipo;
         
         $this->id=$row['id'];
-        $this->img="img/product1.jpg";
-        switch ($tipo) {
+        $this->img= isset($row['immagine']) && $row['immagine']!=''?"/pizzeria2/img/".$row['immagine']:"/pizzeria2/img/product1.jpg";
+         switch ($tipo) {
             case 'pizze':
                 $this->titolo=$row['nome_pizza'];
                 $this->descrizione=$row['ingredienti'];

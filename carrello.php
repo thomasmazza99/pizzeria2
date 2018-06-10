@@ -90,7 +90,7 @@
                   <div class="box-footer d-flex justify-content-between align-items-center">
                     <div class="left-col"><a href="prodotti.php" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i> Vai ai prodotti</a></div>
                     <div class="right-col">
-                      <button type="submit" class="btn btn-template-outlined">Procedi con l'ordine <i class="fa fa-chevron-right"></i></button>
+                      <button type="submit" class="btn btn-template-outlined"><a href="ordine.php">Procedi con l'ordine </a><i class="fa fa-chevron-right"></i></button>
                     </div>
                   </div>
               </div>
