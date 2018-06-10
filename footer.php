@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-lg-3">
         <h4 class="h6">Accettiamo tutti i tipi di Buono Pasto</h4>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        <p>We accept all the food stamps</p>
         
        
         <hr class="d-block d-lg-none">

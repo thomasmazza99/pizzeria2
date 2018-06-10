@@ -17,7 +17,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="heading text-center">
-                  <h2>Contact form</h2>
+                  <h2>Contattaci</h2>
                 </div>
               </div>
               <div class="col-md-8 mx-auto">
@@ -25,14 +25,8 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label for="firstname">First Name</label>
-                        <input id="firstname" type="text" class="form-control">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label for="lastname">Last Name</label>
-                        <input id="lastname" type="text" class="form-control">
+                        <label for="name">Nome</label>
+                        <input id="name" type="text" class="form-control">
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -41,20 +35,21 @@
                         <input id="email" type="text" class="form-control">
                       </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                       <div class="form-group">
-                        <label for="subject">Subject</label>
+                        <label for="subject">Oggetto</label>
                         <input id="subject" type="text" class="form-control">
                       </div>
                     </div>
                     <div class="col-sm-12">
                       <div class="form-group">
-                        <label for="message">Message</label>
+                        <label for="message">Messaggio</label>
                         <textarea id="message" class="form-control"></textarea>
                       </div>
                     </div>
                     <div class="col-sm-12 text-center">
-                      <button type="submit" class="btn btn-template-outlined"><i class="fa fa-envelope-o"></i> Send message</button>
+                    <button type="submit" class="btn btn-template-outlined"><i class="fa fa-envelope-o"></i> Invia</button>
+                    <button type="delete" class="btn btn-template-outlined"><i class="fa fa-envelope-o"></i><a href="index.php">Annulla</a></button>  
                     </div>
                   </div>
                 </form>
