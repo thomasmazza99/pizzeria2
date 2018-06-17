@@ -3,34 +3,24 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
-        <h4 class="h6">Accettiamo tutti i tipi di Buono Pasto</h4>
-        <p>We accept all the food stamps</p>
-        
-       
-        <hr class="d-block d-lg-none">
-      </div>
-      <div class="col-lg-3">
         <h4 class="h6">Offerte <br> (escluso Margherita e Marinara)</h4>
         <p class="text-uppercase">Ogni 3 pizze una Coca 0.5cl in omaggio </p>
         <p class="text-uppercase">Ogni 4 pizze una Coca 1.5cl in omaggio </p>
-       
         <hr class="d-block d-lg-none">
       </div>
-      <div class="col-lg-3">
+      <div class="col-lg-4">
         <h4 class="h6">Contatti</h4>
         <p class="text-uppercase"><strong>Via Filippo Turati 36/B.</strong><br>0516153392 / 051430261 <br>pizzeriarossoblu@gmail.com <br><strong>Per qualsiasi informazione contattaci!!!</strong></p> 
         <hr class="d-block d-lg-none">
       </div>
-      <!--<div class="col-lg-3">
+      <div class="col-lg-5">
+      <h4 class="h6">Tipo di Pagamento</h4>
         <ul class="list-inline photo-stream">
-          <li class="list-inline-item"><a href="#"><img src="/pizzeria2/img/detailsquare.jpg" alt="..." class="img-fluid"></a></li>
-          <li class="list-inline-item"><a href="#"><img src="/pizzeria2/img/detailsquare2.jpg" alt="..." class="img-fluid"></a></li>
-          <li class="list-inline-item"><a href="#"><img src="/pizzeria2/img/detailsquare3.jpg" alt="..." class="img-fluid"></a></li>
-          <li class="list-inline-item"><a href="#"><img src="/pizzeria2/img/detailsquare3.jpg" alt="..." class="img-fluid"></a></li>
-          <li class="list-inline-item"><a href="#"><img src="/pizzeria2/img/detailsquare2.jpg" alt="..." class="img-fluid"></a></li>
-          <li class="list-inline-item"><a href="#"><img src="/pizzeria2/img/detailsquare.jpg" alt="..." class="img-fluid"></a></li>
-        </ul>
-      </div>-->
+          <li class="list-inline-item"><a href="#"><img src="/pizzeria2/img/denaro.jpg"  class="img-fluid"></a></li>
+          <li class="list-inline-item"><a href="#"><img src="/pizzeria2/img/visa.png" alt="..." class="img-fluid"></a></li>
+          <li class="list-inline-item"><a href="#"><img src="/pizzeria2/img/buonipasto.png" alt="..." class="img-fluid"></a></li>
+          </ul>
+      </div>
     </div>
   </div>
   <div class="copyrights">
