@@ -15,7 +15,7 @@
     <div id="content">
     <section class="bar pt-0">
             <div class="row">
-              <div class="col-md-12">
+             <div class="col-md-12">
                 <div class="heading text-center">
                   <h2>Contattaci</h2>
                 </div>
@@ -48,7 +48,7 @@
                       </div>
                     </div>
                     <div class="col-sm-12 text-center">
-                    <button type="submit" class="btn btn-template-outlined"><i class="fa fa-envelope-o"></i> Invia</button>
+                    <button type="submit" class="btn btn-template-outlined"><i class="fa fa-envelope-o"></i> <a href="mssinvio.php">Invia</a></button>
                     <button type="delete" class="btn btn-template-outlined"><i class="fa fa-envelope-o"></i><a href="index.php">Annulla</a></button>  
                     </div>
                   </div>
