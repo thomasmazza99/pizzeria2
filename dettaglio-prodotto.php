@@ -36,7 +36,7 @@
                 </div>
                 <div class="col-sm-6">                
                     <div class="box">                   
-                    <form method="POST" action="carrello.php">
+                    <form method="POST" action="carrello.php?ritiro=<?php echo $ritiro;?>">
                       <input type="hidden" name="id_product" value="<?php echo $prodotto->id; ?>">
                       <input type="hidden" name="tipo" value="<?php echo $prodotto->tipo; ?>">
                       <div class="sizes">

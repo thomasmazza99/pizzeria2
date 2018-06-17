@@ -10,9 +10,10 @@
     }
     $ritiro=true;
     if(isset($_REQUEST['ritiro'])){
-      $ritiro=$_REQUEST['ritiro'];
+      $ritiro=filter_var($_REQUEST['ritiro'], FILTER_VALIDATE_BOOLEAN);
     }
     $cart = !empty($_SESSION['cart'])?$_SESSION['cart']:new CarrelloModel($ritiro);
+    $cart->ritiro=$ritiro;
     $grandezza='';
     if(isset($_REQUEST['grandezza'])){
       $grandezza=$_REQUEST['grandezza'];

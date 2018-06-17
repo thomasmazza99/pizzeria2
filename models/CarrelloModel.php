@@ -29,6 +29,7 @@ class CarrelloModel{
             $item->tipo = $tipo;
             $item->img=$prodotto->img;
             $item->titolo=$prodotto->titolo;            
+            $item->grandezza=$grandezza;
             if($grandezza && $grandezza=="doppioimpasto"){
                 $item->prezzo=$prodotto->prezzo + $this->aumentoGrandezza;
                 $item->grandezza=$grandezza;
@@ -72,7 +73,7 @@ class CarrelloModel{
     public function getItem($product_id,$tipo, $grandezza=''){
         foreach($this->items as $index => $element) {
             $item=$this->items[$index];
-            if($item->product_id==$product_id && $item->tipo==$tipo && $item->grandezza==$grandezza)
+            if($item->product_id==$product_id && $item->tipo==$tipo && ($item->grandezza==$grandezza || $item->grandezza==null))
             {
                  return $item;
             }
