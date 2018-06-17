@@ -1,8 +1,9 @@
 <?php
 require_once  $homedir.'/pizzeria2/models/db.php';
 require_once  $homedir.'/pizzeria2/models/ProdottoModel.php';
-require_once  $homedir.'/pizzeria2/models/ProdottiModel.php';
 require_once  $homedir.'/pizzeria2/models/CarrelloItemModel.php';
+require_once  $homedir.'/pizzeria2/models/OrdiniModel.php';
+
 class CarrelloModel{
  
     // database connection and table name
@@ -79,25 +80,10 @@ class CarrelloModel{
         return null;
     }
     public function createOrder($user){
-        $this->conn = new DB();
-        $data = array(
-                'data' => date('Y-m-d H:i:s'),
-                'username' => $user->username,
-                'nome_cognome_cliente'=>$user->email,
-                'telefono'=>''
-            );
-        $ordineId=$this->conn->insert('ordine',$data);
-        if($ordineId){
-            foreach($this->items as $index => $element) {
-                $item=$this->items[$index];
-                if($item->tipo=='pizze'){
-                    $pizze_ordini=array(
-                        'id_pizza'=>$item->product_id,
-                        'id_ordine'=>$ordineId
-                    );
-                    $this->conn->insert('pizze_ordini',$pizze_ordini);
-                }
-            }
+        $ordiniModel=new OrdiniModel();
+        if($user){
+            $ordiniModel->createOrder($user,$this->items);
+            $this->items=[];
         }
     }
 }

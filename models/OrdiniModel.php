@@ -3,7 +3,7 @@ require_once  $homedir.'/pizzeria2/models/db.php';
 require_once  $homedir.'/pizzeria2/models/ProdottoModel.php';
 require_once  $homedir.'/pizzeria2/models/ProdottiModel.php';
 require_once  $homedir.'/pizzeria2/models/CarrelloItemModel.php';
-class CarrelloModel{
+class OrdiniModel{
  
     public function createOrder($user,$prodotti){
         $this->conn = new DB();
@@ -18,11 +18,32 @@ class CarrelloModel{
             foreach($prodotti as $index => $element) {
                 $item=$prodotti[$index];
                 if($item->tipo=='pizze'){
-                    $pizze_ordini=array(
+                    $data=array(
                         'id_pizza'=>$item->product_id,
                         'id_ordine'=>$ordineId
                     );
-                    $this->conn->insert('pizze_ordini',$pizze_ordini);
+                    $okInsert=$this->conn->insert('pizze_ordini',$data);
+                }
+                if($item->tipo=='panini'){
+                    $data=array(
+                        'id_panini'=>$item->product_id,
+                        'id_ordine'=>$ordineId
+                    );
+                    $okInsert=$this->conn->insert('panini_ordini',$data);
+                }
+                if($item->tipo=='insalate'){
+                    $data=array(
+                        'id_insalate'=>$item->product_id,
+                        'id_ordine'=>$ordineId
+                    );
+                    $okInsert=$this->conn->insert('insalate_ordine',$data);
+                }
+                if($item->tipo=='bibite'){
+                    $data=array(
+                        'id_bibite'=>$item->product_id,
+                        'id_ordine'=>$ordineId
+                    );
+                    $okInsert=$this->conn->insert('bibite_ordini',$data);
                 }
             }
         }

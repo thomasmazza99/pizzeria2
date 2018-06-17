@@ -13,6 +13,10 @@
     $user = !empty($_SESSION['user'])?$_SESSION['user']:null;
     if(isset($_REQUEST['save']) && $cart && $user){
       $cart->createOrder($user);
+      header("Location: ordine.php?success");
+    }
+    if(isset($_REQUEST['success'])){
+
     }
 ?>
 <body>
@@ -23,10 +27,14 @@
    
     <div id="content">
       <div class="container">
+
           <div class="row bar">
             <div id="customer-order" class="col-lg-12">
-              <p class="lead">Order #1735 was placed on <strong>22/06/2013</strong> and is currently <strong>Being prepared</strong>.</p>
-              <p class="lead text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
+              <p class="lead">Di seguito il riepilogo dell'ordine.</p>
+              <p class="lead text-muted">Procedendo il tuo ordine verrà salvato!</p>
+              <?php if(isset($_REQUEST['success'])): ?>
+              <p class="lead ">Ordine Inserito con successo!</p>
+              <?php endif; ?>
               <div class="box">
               <div class="table-responsive">
                     <table class="table">
@@ -72,24 +80,6 @@
                       <button type="submit" class="btn btn-template-outlined"><a href="ordine.php?save">Salva ordine </a><i class="fa fa-chevron-right"></i></button>
                     </div>
                   </div>
-                <div class="row addresses">
-                  <div class="col-md-6 text-right">
-                    <h3 class="text-uppercase">Invoice address</h3>
-                    <p>John Brown<br>					    13/25 New Avenue<br>					    New Heaven<br>					    45Y 73J<br>					    England<br>					    Great Britain</p>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <h3 class="text-uppercase">Shipping address</h3>
-                    <p>John Brown<br>					    13/25 New Avenue<br>					    New Heaven<br>					    45Y 73J<br>					    England<br>					    Great Britain</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 mt-4 mt-lg-0">
-              <!-- CUSTOMER MENU -->
-              <div class="panel panel-default sidebar-menu">
-                <div class="panel-heading">
-                  <h3 class="h4 panel-title">Customer section</h3>
-                </div>
               </div>
             </div>
           </div>
