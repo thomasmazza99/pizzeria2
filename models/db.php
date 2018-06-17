@@ -156,5 +156,9 @@ class DB{
         $delete = $this->db->query($query);
         return $delete?true:false;
     }
+
+    public function getLastId(){
+        return $this->db->insert_id;
+    }
 }
 ?>

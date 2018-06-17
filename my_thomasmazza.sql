@@ -229,3 +229,6 @@ ALTER TABLE `pizze_ordini`
   `email` varchar(255) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+
+alter table `ordine`
+add username varchar(255) not null;

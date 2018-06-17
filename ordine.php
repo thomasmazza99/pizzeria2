@@ -10,6 +10,10 @@
         session_start();
     }
     $cart = !empty($_SESSION['cart'])?$_SESSION['cart']:null;
+    $user = !empty($_SESSION['user'])?$_SESSION['user']:null;
+    if(isset($_REQUEST['save']) && $cart && $user){
+      $cart->createOrder($user);
+    }
 ?>
 <body>
   <div id="wrapper">
@@ -61,6 +65,12 @@
                         </tr>
                       </tfoot>
                     </table>
+                  </div>
+                  <div class="box-footer d-flex justify-content-between align-items-center">
+                    <div class="left-col"><a href="prodotti.php" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i> Vai ai prodotti</a></div>
+                    <div class="right-col">
+                      <button type="submit" class="btn btn-template-outlined"><a href="ordine.php?save">Salva ordine </a><i class="fa fa-chevron-right"></i></button>
+                    </div>
                   </div>
                 <div class="row addresses">
                   <div class="col-md-6 text-right">

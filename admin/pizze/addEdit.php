@@ -8,8 +8,11 @@
   <body>
   	
 <?php
-//start session
-session_start();
+require_once  $homedir.'/pizzeria2/models/CarrelloModel.php';
+require_once  $homedir.'/pizzeria2/models/UserModel.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 //get session data
 $sessData = !empty($_SESSION['sessData'])?$_SESSION['sessData']:'';
